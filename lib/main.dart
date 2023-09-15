@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pokedex 2k23',
       theme: ThemeData(primarySwatch: Colors.red),
+      debugShowCheckedModeBanner: false,
       home: PokedexRoute(
         repository: PokemonRepository(
           dio: Dio(),
