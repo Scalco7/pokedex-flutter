@@ -4,15 +4,21 @@ import 'package:pokedex_copy/features/pokedex/screens/details/container/detail_c
 import 'package:pokedex_copy/features/pokedex/screens/home/pages/widgets/type_widget.dart';
 
 class PokemonItemWidget extends StatelessWidget {
-  const PokemonItemWidget(
-      {super.key, required this.pokemon, required this.onTap});
+  const PokemonItemWidget({
+    super.key,
+    required this.pokemon,
+    required this.onTap,
+    required this.index,
+  });
   final Pokemon pokemon;
   final Function(String, DetailArguments) onTap;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap("/details", DetailArguments(pokemon: pokemon)),
+      onTap: () =>
+          onTap("/details", DetailArguments(pokemon: pokemon, index: index)),
       child: Container(
         decoration: BoxDecoration(
           color: pokemon.baseColor!.withOpacity(0.8),

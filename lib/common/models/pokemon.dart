@@ -4,7 +4,6 @@ class Pokemon {
   final int id;
   final String num;
   final String name;
-  final String image;
   final List<String> type;
 
   factory Pokemon.fromMap(Map<String, dynamic> json) {
@@ -12,19 +11,19 @@ class Pokemon {
       id: json['id'],
       num: json['num'],
       name: json['name'],
-      image: json['img'],
       type: (json['type'] as List<dynamic>).map((e) => e as String).toList(),
     );
   }
 
   Color? get baseColor => _color(type: type[0]);
+  String get image =>
+      "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/$num.png";
 
   Pokemon({
     required this.id,
     required this.num,
     required this.type,
     required this.name,
-    required this.image,
   });
 
   static Color? _color({required String type}) {
